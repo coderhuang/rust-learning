@@ -8,12 +8,18 @@ fn main() {
     println!("x:{};\ny:{};\nz:{}", x, y, z);
     println!("------------神秘分割线----------");
     println!("x:{};\ny:{};\nz:{}", tup.0, tup.1, tup.2);
-
+    
     let i = incre_one(1);
     println!("call incre_one() with argument 1; return => {}", i);
-
+    
     for number in (1..4).rev() {
         println!("{}", number);
+    }
+    
+    println!("------------神秘分割线----------");
+    let array: [i32; 6] = [1, 2, 3, 4, 5, 6];
+    for ele in array.iter() {
+        println!("{}", ele);
     }
 
     print_fibonacci(5);
