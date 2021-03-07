@@ -22,6 +22,10 @@ fn main() {
         println!("{}", ele);
     }
 
+    for (i, ele) in array.iter().enumerate() {
+        println!("{}:{}", i, ele);
+    }
+
     print_fibonacci(5);
 }
 
