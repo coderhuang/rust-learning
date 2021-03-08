@@ -3,17 +3,17 @@ use std::io;
 fn main() {
     println!("Hello, enum and pattern matching");
 
-    println!("print which ip kind would you like to choose");
+    println!("print which ip kind would you like to choose, 4 or 6?");
 
     let mut input = String::new();
     io::stdin()
         .read_line(&mut input)
         .expect("fail to read line");
 
-    let choosed_ip_kind = if input == "V4" {
-        IpAddressKind::V4;
-    } else {
-        IpAddressKind::V6;
+    let choosed_ip_kind = match input.as_str() {
+        "4" => IpAddressKind::V4,
+        "6" => IpAddressKind::V6,
+        _ => IpAddressKind::V4,
     };
 
     let default_ip_address = create_default_ip_address(choosed_ip_kind);
