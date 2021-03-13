@@ -13,8 +13,8 @@ fn main() {
         .read_line(&mut input)
         .expect("fail to read line");
 
-    println!("input is：{}", input.as_str());
-    let choosed_ip_kind = match input.as_str() {
+    println!("input is：{}", input);
+    let choosed_ip_kind = match input.trim() {
         "4" => IpAddressKind::V4,
         "6" => IpAddressKind::V6,
         _ => IpAddressKind::V4,
@@ -29,6 +29,27 @@ fn main() {
     write_of_message.print_self();
     let change_color_of_message = inner_mod::Message::ChangeColor(0o7, 0b1000_1001, 0xafe1);
     change_color_of_message.print_self();
+
+    println!("print number in [1-100]?");
+
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("fail to read line");
+
+    let numer: u32 = match input.trim().parse() {
+        Ok(n) => {
+            if n > 100 {
+                panic!("must be numer");
+            }
+            n
+        }
+        _ => panic!("the input must be numer"),
+    };
+
+    if let inner_mod::Message::Quit(n) = inner_mod::Message::Quit(numer) {
+        println!("input number is:{}", n);
+    }
 }
 
 fn create_default_ip_address(ip_kind: IpAddressKind) -> IpAddress {
@@ -53,7 +74,7 @@ mod inner_mod {
 
     #[derive(Debug)]
     pub enum Message {
-        Quit,
+        Quit(u32),
         Move { x: i32, y: u32 },
         Write(bool, String),
         ChangeColor(i32, i32, i32),
