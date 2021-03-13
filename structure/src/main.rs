@@ -59,9 +59,15 @@ fn main() {
     println!("{:?}", rect1);
     println!("{:#?}", rect1);
 
-    let rect2 = Rectangle { width: 10, height: 40 };
-    let rect3 = Rectangle { width: 60, height: 45 };
-    let hold_flag=rect2.can_hold(&rect3);
+    let rect2 = Rectangle {
+        width: 10,
+        height: 40,
+    };
+    let rect3 = Rectangle {
+        width: 60,
+        height: 45,
+    };
+    let hold_flag = rect2.can_hold(&rect3);
     println!("hold_flag:{}", hold_flag);
 }
 
