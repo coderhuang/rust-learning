@@ -6,7 +6,7 @@ fn main() {
     let s = String::from("foo");
     assert_eq!("foo", s.as_str());
 
-    println!("print which ip kind would you like to choose, 4 or 6?");
+    println!("print which ip kind would you like to choose, V4 or V6?");
 
     let mut input = String::new();
     io::stdin()
@@ -15,8 +15,8 @@ fn main() {
 
     println!("input is：{}", input);
     let choosed_ip_kind = match input.trim() {
-        "4" => IpAddressKind::V4,
-        "6" => IpAddressKind::V6,
+        "V4" => IpAddressKind::V4,
+        "V6" => IpAddressKind::V6,
         _ => IpAddressKind::V4,
     };
 
