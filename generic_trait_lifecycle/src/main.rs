@@ -1,3 +1,5 @@
+use trait_bound_mod::Lol;
+
 fn main() {
 	println!("Hello, generic_trait_lifecycle!");
 	let mut v = Vec::new();
@@ -25,6 +27,11 @@ fn main() {
 	let p = vec_fn::Point::create_instance(0.32, 0b1010_1010);
 	// println!("p.x:{},p.y:{}", p.get_x_i32(), p.get_y_str());
 	println!("p.x:{},p.y:{}", p.get_x(), p.get_y());
+
+	let x: u32 = 0x123456;
+	let y: u8 = 0b1111_0000;
+	let pair = trait_bound_mod::Pair::new(x, y);
+	pair.print_lol();
 }
 
 mod vec_fn {
@@ -103,4 +110,29 @@ mod trait_mod {
 			format!("{}, by {} ({})", self.headline, self.author, self.location)
 		}
 	}
+}
+
+mod trait_bound_mod {
+
+	// use std::fmt::Display;
+
+	pub trait Lol {
+		fn print_lol(&self) {
+			println!("lol");
+		}
+	}
+
+	#[derive(Debug)]
+	pub struct Pair<T, E> {
+		x: T,
+		y: E,
+	}
+
+	impl<T, E> Pair<T, E> {
+		pub fn new(x: T, y: E) -> Pair<T, E> {
+			Self { x, y }
+		}
+	}
+
+	impl<T, E> Lol for Pair<T, E> {}
 }
