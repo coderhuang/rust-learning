@@ -114,7 +114,7 @@ mod trait_mod {
 
 mod trait_bound_mod {
 
-	// use std::fmt::Display;
+	use std::fmt::Display;
 
 	pub trait Lol {
 		fn print_lol(&self) {
@@ -135,4 +135,5 @@ mod trait_bound_mod {
 	}
 
 	impl<T, E> Lol for Pair<T, E> {}
+	
 }
