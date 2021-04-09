@@ -45,6 +45,29 @@ fn parse_input(input: String) -> (i32, i32) {
     (num1, num2)
 }
 
+struct Counter {
+    count: u32,
+}
+
+impl Counter {
+    fn new() -> Counter {
+        Counter { count: 0 }
+    }
+}
+
+impl Iterator for Counter {
+    type Item = u32;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        self.count += 1;
+        if self.count > 6 {
+            return Some(self.count);
+        } else {
+            return None;
+        }
+    }
+}
+
 struct Cacher<T>
 where
     T: Fn(u32) -> u32,
