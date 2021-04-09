@@ -1,5 +1,5 @@
-use std::io;
 use inner_utils::*;
+use std::io;
 
 fn main() {
     println!("Hello, closure!");
@@ -30,8 +30,22 @@ fn main() {
     println!("{}", equals(n1, n2));
 }
 
+///
+/// # markdown example
+///
 mod inner_utils {
 
+    /// ### 解析输入
+    /// 用于将字符串输入解析为两个数字
+    /// 以空格为分隔符
+    /// 
+    /// ```
+    /// fn (){
+    ///     println!("这是一段NB的代码");
+    /// }
+    /// 
+    /// ```
+    /// 
     pub fn parse_input(input: String) -> (i32, i32) {
         let len = input.len();
         let mut split_index = 0;
@@ -41,17 +55,13 @@ mod inner_utils {
                 break;
             }
         }
-    
         let num1_str = &input[0..split_index];
         let num2_str = &input[(split_index + 1)..len];
         let num1 = num1_str.trim().parse().unwrap();
         let num2 = num2_str.trim().parse().unwrap();
-    
         (num1, num2)
     }
-
 }
-
 
 struct Counter {
     count: u32,
