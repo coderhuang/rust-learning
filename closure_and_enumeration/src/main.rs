@@ -1,4 +1,5 @@
 use std::io;
+use inner_utils::*;
 
 fn main() {
     println!("Hello, closure!");
@@ -16,34 +17,41 @@ fn main() {
         x == y
     }
 
-    println!("please input two numbers used for compare");
     let equals_flag = equals(100, 132);
     println!("equals_flag:{}", equals_flag);
 
     let mut input = String::new();
-    io::stdin().read_line(&mut input);
+    println!("please input two numbers used for compare");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("io读取用户输入错误");
 
     let (n1, n2) = parse_input(input);
     println!("{}", equals(n1, n2));
 }
 
-fn parse_input(input: String) -> (i32, i32) {
-    let len = input.len();
-    let mut split_index = 0;
-    for (i, c) in input.chars().enumerate() {
-        if c == ' ' {
-            split_index = i;
-            break;
+mod inner_utils {
+
+    pub fn parse_input(input: String) -> (i32, i32) {
+        let len = input.len();
+        let mut split_index = 0;
+        for (i, c) in input.chars().enumerate() {
+            if c == ' ' {
+                split_index = i;
+                break;
+            }
         }
+    
+        let num1_str = &input[0..split_index];
+        let num2_str = &input[(split_index + 1)..len];
+        let num1 = num1_str.trim().parse().unwrap();
+        let num2 = num2_str.trim().parse().unwrap();
+    
+        (num1, num2)
     }
 
-    let num1_str = &input[0..split_index];
-    let num2_str = &input[(split_index + 1)..len];
-    let num1 = num1_str.trim().parse().unwrap();
-    let num2 = num2_str.trim().parse().unwrap();
-
-    (num1, num2)
 }
+
 
 struct Counter {
     count: u32,
