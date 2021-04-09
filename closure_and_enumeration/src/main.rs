@@ -1,3 +1,14 @@
+//! # 文档
+//! 
+//! ```
+//! fn(){
+//!     println!("这是一段代码");
+//! }
+//! 
+//! ```
+
+
+
 use inner_utils::*;
 use std::io;
 
@@ -30,22 +41,27 @@ fn main() {
     println!("{}", equals(n1, n2));
 }
 
+/// # markdown example for inner_utils module
 ///
-/// # markdown example
-///
+/// ```
+/// fn(){
+///    println!("这是一段代码");    
+/// }
+/// ```
 mod inner_utils {
 
     /// ### 解析输入
     /// 用于将字符串输入解析为两个数字
     /// 以空格为分隔符
-    /// 
+    ///
     /// ```
-    /// fn (){
-    ///     println!("这是一段NB的代码");
-    /// }
-    /// 
+    /// let input = "100 100";
+    /// let (n1, n2) = parse_input(input);
+    /// println!("{}", equals(n1, n2));
+    ///
     /// ```
-    /// 
+    ///
+    ///
     pub fn parse_input(input: String) -> (i32, i32) {
         let len = input.len();
         let mut split_index = 0;
@@ -60,6 +76,10 @@ mod inner_utils {
         let num1 = num1_str.trim().parse().unwrap();
         let num2 = num2_str.trim().parse().unwrap();
         (num1, num2)
+    }
+
+    pub fn my_panic(message: String) {
+        panic!(message);
     }
 }
 
