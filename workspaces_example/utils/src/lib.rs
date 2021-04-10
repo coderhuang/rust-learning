@@ -6,20 +6,32 @@
 pub use rand_num::gen;
 pub use string_operate::parse_input;
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn it_works() {
+        let gen = gen(100);
+        assert!(gen > 0 && gen < 100);
+    }
+
+    #[test]
+    fn parse_input_test() {
+        let input = String::from("100 300");
+        let (n1, n2) = parse_input(input);
+        assert_eq!(n1, 100);
+        assert_eq!(n2, 300);
+    }
+}
+
 /// ## string操作的工具模块
 pub mod string_operate {
 
     /// ### 解析输入
+    ///
     /// 用于将字符串输入解析为两个数字
     /// 以空格为分隔符
-    ///
-    /// ```
-    /// let input = "100 100";
-    /// let (n1, n2) = parse_input(input);
-    /// println!("{}", equals(n1, n2));
-    ///
-    /// ```
-    ///
     ///
     pub fn parse_input(input: String) -> (i32, i32) {
         let len = input.len();
