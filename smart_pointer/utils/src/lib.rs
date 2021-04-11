@@ -1,5 +1,6 @@
 //! # 智能指针-工具create
 
+pub use toby_smart_pointer::DropPointer;
 pub use toby_smart_pointer::TobyBox;
 
 #[cfg(test)]
@@ -36,6 +37,22 @@ pub mod toby_smart_pointer {
 
         fn deref(&self) -> &T {
             &self.0
+        }
+    }
+
+    pub struct DropPointer {
+        x: String,
+    }
+
+    impl DropPointer {
+        pub fn new(data: String) -> DropPointer {
+            DropPointer { x: data }
+        }
+    }
+
+    impl Drop for DropPointer {
+        fn drop(&mut self) {
+            println!("DropPointer data:{}", self.x);
         }
     }
 }

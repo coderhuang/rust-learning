@@ -1,3 +1,4 @@
+use utils::DropPointer;
 use utils::TobyBox;
 
 fn main() {
@@ -8,4 +9,8 @@ fn main() {
 
     println!("x:{}", x);
     println!("y:{:#?}", *y);
+
+    let c = DropPointer::new(String::from("my stuff"));
+    let d = DropPointer::new(String::from("other stuff"));
+    println!("DropPointers created.");
 }
