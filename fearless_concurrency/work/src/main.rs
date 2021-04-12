@@ -24,7 +24,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
 
     let (tx, rx) = mpsc::channel();
-    let tx_handler = thread::spawn(move || {
+    thread::spawn(move || {
         let val = String::from("hi");
         tx.send(val).unwrap();
     });
