@@ -18,6 +18,9 @@ fn main() {
         Some(two) => println!("value of index 1 at v:{}", two),
         None => println!("there is nothing"),
     }
+    for (i, val) in v.iter().enumerate() {
+        println!("v at {} value :{}", i, val);
+    }
     let v = vec![100, 0o100, 0x12a, 0b1111_1111];
     for value in &v {
         println!("{}", value);
@@ -35,7 +38,6 @@ fn main() {
     for b in formated_string.bytes() {
         println!("{}", b);
     }
-    
     hash_map_test::new();
     hash_map_test::lets_panic();
     hash_map_test::get_val("blue");
