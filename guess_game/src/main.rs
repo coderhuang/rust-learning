@@ -6,7 +6,7 @@ fn main() {
     println!("guess game!!!");
     println!("guess the rand num aha");
 
-    let secret_num = rand::thread_rng().gen_range(1, 101);
+    let secret_num = rand::thread_rng().gen_range(1..101);
 
     loop {
         let mut guess = String::new();

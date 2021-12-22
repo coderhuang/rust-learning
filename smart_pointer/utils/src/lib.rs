@@ -63,7 +63,7 @@ pub mod mock {
     where
         T: Messenger,
     {
-        pub fn new(messenger: &T, max: usize) -> LimitTracker<T> {
+        pub fn new(messenger: &'a T, max: usize) -> LimitTracker<T> {
             LimitTracker {
                 messenger,
                 value: 0,
@@ -91,6 +91,7 @@ pub mod toby_smart_pointer {
 
     use std::ops::Deref;
     use std::rc::Rc;
+    #[derive(Debug)]
     pub struct TobyBox<T>(T);
 
     impl<T> TobyBox<T> {

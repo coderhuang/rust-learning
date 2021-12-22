@@ -68,7 +68,8 @@ mod vec_fn {
 		}
 
 		pub fn create_instance(x: T, y: E) -> Point<T, E> {
-			Point { x: x, y: y }
+			// Point { x: x, y: y }
+			Point { x, y }
 		}
 
 		pub fn get_y(&self) -> &E {
@@ -135,5 +136,4 @@ mod trait_bound_mod {
 	}
 
 	impl<T, E> Lol for Pair<T, E> {}
-	
 }
