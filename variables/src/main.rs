@@ -29,6 +29,8 @@ fn main() {
     print_fibonacci(5);
 
     shadowing();
+
+    number_eval();
 }
 
 fn incre_one(i: i32) -> i32 {
@@ -84,4 +86,27 @@ fn shadowing(){
     let y:f32 = 10.0123456;
     println!("y:{}",y);
     
+}
+
+fn number_eval(){
+    
+    println!("-------计算分割线-------");
+    let result = 1+6;
+    println!("result:{}",result);
+    
+    let result = result -100;
+    println!("result:{}",result);
+    
+    let result:f64 = 100.0*0.23;
+    println!("result:{}",result);
+    
+    let result = 100.0/7.0;
+    println!("result:{}",result);
+    
+    let result = 100/7;
+    println!("result:{}",result);
+    
+    let result = 100%7;
+    println!("result:{}",result);
+
 }
