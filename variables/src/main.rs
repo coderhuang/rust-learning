@@ -8,6 +8,10 @@ fn main() {
     println!("x:{};\ny:{};\nz:{}", x, y, z);
     println!("------------神秘分割线----------");
     println!("x:{};\ny:{};\nz:{}", tup.0, tup.1, tup.2);
+
+    let tup1 :(i32,String,f64) = (123,String::from("asas"),123.0);
+    println!("------------神秘分割线----------");
+    println!("x:{};\ny:{};\nz:{}", tup1.0, tup1.1, tup1.2);
     
     let i = incre_one(1);
     println!("call incre_one() with argument 1; return => {}", i);
