@@ -27,6 +27,8 @@ fn main() {
     }
 
     print_fibonacci(5);
+
+    shadowing();
 }
 
 fn incre_one(i: i32) -> i32 {
@@ -45,4 +47,20 @@ fn print_fibonacci(u: u32) {
         println!("x=>{};y=>{}", x, y);
         n += 1;
     }
+}
+
+fn shadowing(){
+
+    let x = 10;
+    println!("x:{}",x);
+    
+    let x = x+1;
+    println!("x:{}",x);
+    
+    let x = x * 2;
+    println!("x:{}",x);
+    
+    let x = "打完收工😁";
+    println!("x:{}",x);
+
 }
