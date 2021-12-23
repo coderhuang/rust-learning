@@ -62,5 +62,20 @@ fn shadowing(){
     
     let x = "打完收工😁";
     println!("x:{}",x);
+    
+    let x = false;
+    println!("x:{}",x);
+    
+    let x = b'0';
+    println!("x:{}",x);
 
+    let x:u32 = 0xffeedcba;
+    println!("x:{}",x);
+    
+    let x:u32 = 0o01234560123;
+    println!("x:{}",x);
+    
+    let x:u32 = 0b0111_100;
+    println!("x:{}",x);
+    
 }
