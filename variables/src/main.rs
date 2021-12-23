@@ -1,4 +1,4 @@
-const MAX_DIMENSION: u32 = 64;
+const MAX_DIMENSION: u32 = 1 << 6;
 
 fn main() {
     println!("{}", MAX_DIMENSION);
