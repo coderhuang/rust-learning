@@ -78,4 +78,10 @@ fn shadowing(){
     let x:u32 = 0b0111_100;
     println!("x:{}",x);
     
+    let y = 10.0123456;
+    println!("y:{}",y);
+    
+    let y:f32 = 10.0123456;
+    println!("y:{}",y);
+    
 }
