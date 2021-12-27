@@ -35,6 +35,15 @@ fn main() {
     shadowing();
 
     number_eval();
+
+    let mut x = 1;
+    'l:loop {
+        println!("x:{}",x);
+        x+=1;
+        if x >10{
+            break 'l;
+        }
+    }
 }
 
 fn incre_one(i: i32) -> i32 {
