@@ -1,5 +1,6 @@
 **/target
 /.metadata/
 **/.project
-**/.idea
-.gitignore
+**/*.lock
+**/*.exe
+**/*.pdb
